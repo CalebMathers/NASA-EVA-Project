@@ -1,18 +1,18 @@
-"""Script to extract the data from the csv file."""
+"""Script to extract the data from url."""
 
 from os.path import exists
 from os import mkdir
 import urllib.request
 
-DATA_API_ENDPOINT = "https://data.nasa.gov/resource/eva.csv"
-DOWNLOAD_FILEPATH = "data/nasa_eva_records.csv"
+DATA_API_ENDPOINT = "https://data.nasa.gov/resource/eva.json"
+FILEPATH = "data/nasa_eva_records.json"
 
 
 def download_nasa_eva_data() -> None:
     """Downloads the NASA EVA dataset as a csv from the API and 
     saves it locally."""
     make_download_folder()
-    urllib.request.urlretrieve(DATA_API_ENDPOINT, DOWNLOAD_FILEPATH)
+    urllib.request.urlretrieve(DATA_API_ENDPOINT, FILEPATH)
 
 
 def make_download_folder() -> None:
